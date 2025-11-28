@@ -4,6 +4,7 @@ import HiCard from '@/app/(home)/hi-card'
 import ArtCard from '@/app/(home)/art-card'
 import ClockCard from '@/app/(home)/clock-card'
 import CalendarCard from '@/app/(home)/calendar-card'
+import MusicCard from '@/app/(home)/music-card'
 import AritcleCard from '@/app/(home)/aritcle-card'
 import WriteButtons from '@/app/(home)/write-buttons'
 import { useSize } from '@/hooks/use-size'
@@ -17,6 +18,7 @@ export default function Home() {
 			<HiCard />
 			{!maxSM && <ClockCard />}
 			{!maxSM && <CalendarCard />}
+			{!maxSM && <MusicCard />}
 			<AritcleCard />
 			{!maxSM && <WriteButtons />}
 		</div>
