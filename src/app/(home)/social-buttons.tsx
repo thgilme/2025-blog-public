@@ -2,7 +2,6 @@ import { useCenterStore } from '@/hooks/use-center'
 import GithubSVG from '@/svgs/github.svg'
 import { ANIMATION_DELAY, CARD_SPACING } from '@/consts'
 import { styles as hiCardStyles } from './hi-card'
-import JuejinSVG from '@/svgs/juejin.svg'
 import EmailSVG from '@/svgs/email.svg'
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
@@ -54,21 +53,6 @@ export default function SocialButtons() {
 							Github
 						</motion.a>
 					)}
-
-					{secondaryShow && (
-						<motion.a
-							href='https://juejin.cn/user/2427311675422382'
-							target='_blank'
-							initial={{ opacity: 0, scale: 0.6 }}
-							animate={{ opacity: 1, scale: 1 }}
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							className='card relative flex items-center gap-2 rounded-xl px-3 py-2.5 font-medium whitespace-nowrap'>
-							<JuejinSVG className='h-6 w-6' />
-							稀土掘金
-						</motion.a>
-					)}
-
 					<motion.button
 						onClick={() => {
 							navigator.clipboard.writeText('yysuni1001@gmail.com').then(() => {
