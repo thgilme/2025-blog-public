@@ -26,7 +26,7 @@ import { useConfigStore } from '@/app/(home)/stores/config-store'
 
 export const styles = {
 	width: 280,
-	height: 315,
+	height: 380,
 	order: 2
 }
 
