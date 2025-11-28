@@ -19,7 +19,7 @@ export default function ArtCard() {
 			width={styles.width}
 			height={styles.height}
 			x={center.x}
-			y={center.y - hiCardStyles.height / 2 - styles.height / 2 - CARD_SPACING}>
+			y={center.y - hiCardStyles.height / 2 - CARD_SPACING - 200 + styles.height / 2}
 			<img src='/images/art/cat.png' alt='wall art' className='h-full w-full rounded-[32px] object-cover' />
 		</Card>
 	)
