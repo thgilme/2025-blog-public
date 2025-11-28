@@ -26,7 +26,7 @@ import { useConfigStore } from '@/app/(home)/stores/config-store'
 
 export const styles = {
 	width: 280,
-	height: 380, // 修改点1：增加高度，防止内容被截断
+	height: 380,
 	order: 2
 }
 
@@ -127,7 +127,6 @@ export default function NavCard() {
 					<>
 						{form !== 'icons' && <div className='text-secondary mt-6 text-sm uppercase'>General</div>}
 
-						{/* 修改点2：父容器只负责定位，移除 space-y-2 */}
 						<div className={cn('relative mt-2', form === 'icons' && 'mt-0')}>
 							<motion.div
 								className='absolute max-w-[230px] rounded-full border'
@@ -136,18 +135,13 @@ export default function NavCard() {
 								animate={
 									form === 'icons'
 										? {
+												// 这里的 24 必须和下面的 gap-[24px] 严格对应
 												left: hoveredIndex * (itemHeight + 24) - extraSize,
 												top: -extraSize,
 												width: itemHeight + extraSize * 2,
 												height: itemHeight + extraSize * 2
 											}
-										: { 
-                                            // 公式现在完美匹配 CSS 的 gap-2 (8px)
-                                            top: hoveredIndex * (itemHeight + 8), 
-                                            left: 0, 
-                                            width: '100%', 
-                                            height: itemHeight 
-                                        }
+										: { top: hoveredIndex * (itemHeight + 8), left: 0, width: '100%', height: itemHeight }
 								}
 								transition={{
 									type: 'spring',
@@ -157,17 +151,16 @@ export default function NavCard() {
 								style={{ backgroundImage: 'linear-gradient(to right bottom, #FFFFFF 0%, #fafafa 80%)' }}
 							/>
 
-							{/* 修改点3：独立的列表容器，使用 flex gap 替代 space，定位更准 */}
-							<div className={cn('flex flex-col gap-2', form === 'icons' && 'flex-row items-center gap-6')}>
+							{/* 修复 1: 使用 gap-[24px] 替代 gap-6，确保间距严格为 24px */}
+							<div className={cn('flex flex-col gap-2', form === 'icons' && 'flex-row items-center gap-[24px]')}>
 								{list.map((item, index) => (
 									<Link
 										key={item.href}
 										href={item.href}
-                                        // 修改点4：添加 h-[52px] 强制固定高度，确保与 JS 计算一致
-                                        // 移除了 py-3，改用 flex items-center 自动垂直居中
+                                        // 修复 2: 在 icons 模式下，强制 w-[28px] 和 h-[28px]，并且去掉 padding
 										className={cn('text-secondary text-md relative z-10 flex items-center gap-3 rounded-full px-5', 
-                                            form === 'full' ? 'h-[52px]' : '', // 只有在完整模式下强制高度
-                                            form === 'icons' && 'p-0'
+                                            form === 'full' ? 'h-[52px]' : '',
+                                            form === 'icons' && 'p-0 w-[28px] h-[28px] justify-center'
                                         )}
 										onMouseEnter={() => setHoveredIndex(index)}>
 										<div className='flex h-7 w-7 items-center justify-center'>
