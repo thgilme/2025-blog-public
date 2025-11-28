@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 import Link from 'next/link'
 
 export const styles = {
-	width: 266,
+	width: 360,
 	order: 8
 }
 
@@ -20,7 +20,7 @@ export default function ArticleCard() {
 		<Card
 			order={styles.order}
 			width={styles.width}
-			x={center.x + hiCardStyles.width / 2 - socialButtonsStyles.width - CARD_SPACING - styles.width}
+			x={center.x - styles.width / 2}
 			y={center.y + hiCardStyles.height / 2 + CARD_SPACING}
 			className='space-y-2 max-sm:static'>
 			<h2 className='text-secondary text-sm'>最新文章</h2>
