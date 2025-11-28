@@ -140,7 +140,7 @@ export default function NavCard() {
 												width: itemHeight + extraSize * 2,
 												height: itemHeight + extraSize * 2
 											}
-										: { top: hoveredIndex * (itemHeight + 8), left: 0, width: '100%', height: itemHeight }
+										: { top: hoveredIndex * (itemHeight + 8) + 8, left: 0, width: '100%', height: itemHeight }
 								}
 								transition={{
 									type: 'spring',
