@@ -127,7 +127,7 @@ export default function NavCard() {
 					<>
 						{form !== 'icons' && <div className='text-secondary mt-6 text-sm uppercase'>General</div>}
 
-						<div className={cn('relative mt-2 space-y-2', form === 'icons' && 'mt-0 flex items-center gap-6 space-y-0')}>
+						<div className={cn('relative mt-2', form === 'icons' && 'mt-0')}>
 							<motion.div
 								className='absolute max-w-[230px] rounded-full border'
 								layoutId='nav-hover'
@@ -140,7 +140,7 @@ export default function NavCard() {
 												width: itemHeight + extraSize * 2,
 												height: itemHeight + extraSize * 2
 											}
-										: { top: hoveredIndex * (itemHeight + 8) + 8, left: 0, width: '100%', height: itemHeight }
+										: { top: hoveredIndex * (itemHeight + 8), left: 0, width: '100%', height: itemHeight }
 								}
 								transition={{
 									type: 'spring',
@@ -148,8 +148,9 @@ export default function NavCard() {
 									damping: 30
 								}}
 								style={{ backgroundImage: 'linear-gradient(to right bottom, #FFFFFF 0%, #fafafa 80%)' }}
-							/>
-
+							/>                    
+    {/* 新添加的包裹层 DIV */}
+                            <div className={cn('space-y-2', form === 'icons' && 'flex items-center gap-6 space-y-0')}>
 							{list.map((item, index) => (
 								<Link
 									key={item.href}
