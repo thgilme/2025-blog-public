@@ -6,8 +6,6 @@ import { toast } from 'sonner'
 import { useMarkdownRender } from '@/hooks/use-markdown-render'
 import { pushAbout, type AboutData } from './services/push-about'
 import { useAuthStore } from '@/hooks/use-auth'
-import LikeButton from '@/components/like-button'
-import GithubSVG from '@/svgs/github.svg'
 import initialData from './list.json'
 
 export default function Page() {
@@ -149,20 +147,6 @@ export default function Page() {
 						</>
 					)}
 
-					<div className='mt-8 flex items-center justify-center gap-6'>
-						<motion.a
-							href='https://github.com/YYsuni/2025-blog-public'
-							target='_blank'
-							rel='noreferrer'
-							initial={{ opacity: 0, scale: 0.6 }}
-							animate={{ opacity: 1, scale: 1 }}
-							transition={{ delay: 0 }}
-							className='flex h-[53px] w-[53px] items-center justify-center rounded-full border bg-white/40'>
-							<GithubSVG />
-						</motion.a>
-
-						<LikeButton slug='open-source' delay={0} />
-					</div>
 				</div>
 			</div>
 
