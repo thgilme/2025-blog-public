@@ -164,6 +164,7 @@ export default function NavCard() {
 								</Link>
 							))}
 						</div>
+				</div>
 					</>
 				)}
 			</Card>
