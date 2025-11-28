@@ -38,12 +38,6 @@ const list = [
 		href: '/blog'
 	},
 	{
-		icon: ProjectsOutlineSVG,
-		iconActive: ProjectsFilledSVG,
-		label: '我的项目',
-		href: '/projects'
-	},
-	{
 		icon: AboutOutlineSVG,
 		iconActive: AboutFilledSVG,
 		label: '关于网站',
@@ -55,12 +49,6 @@ const list = [
 		label: '推荐分享',
 		href: '/share'
 	},
-	{
-		icon: WebsiteOutlineSVG,
-		iconActive: WebsiteFilledSVG,
-		label: '优秀博客',
-		href: '/bloggers'
-	}
 ]
 
 const extraSize = 8
