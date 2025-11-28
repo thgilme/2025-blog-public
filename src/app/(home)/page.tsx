@@ -1,5 +1,6 @@
 'use client'
 
+import HiCard from '@/app/(home)/hi-card'
 import ArtCard from '@/app/(home)/art-card'
 import ClockCard from '@/app/(home)/clock-card'
 import CalendarCard from '@/app/(home)/calendar-card'
@@ -13,6 +14,7 @@ export default function Home() {
 	return (
 		<div className='max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:pt-28 max-sm:pb-20'>
 			<ArtCard />
+			<HiCard />
 			{!maxSM && <ClockCard />}
 			{!maxSM && <CalendarCard />}
 			<AritcleCard />
