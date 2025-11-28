@@ -8,9 +8,8 @@ import MusicSVG from '@/svgs/music.svg'
 import PlaySVG from '@/svgs/play.svg'
 
 export const styles = {
-	width: 293,
+	width: 288,
 	height: 66,
-	offset: 120,
 	order: 6
 }
 
@@ -22,8 +21,8 @@ export default function MusicCard() {
 			order={styles.order}
 			width={styles.width}
 			height={styles.height}
-			x={center.x + CARD_SPACING + hiCardStyles.width / 2 - styles.offset}
-			y={center.y - clockCardStyles.offset + CARD_SPACING + calendarCardStyles.height + CARD_SPACING}
+			x={center.x - hiCardStyles.width / 2 - styles.width - CARD_SPACING}
+			y={center.y + hiCardStyles.height / 2 + CARD_SPACING}
 			className='flex items-center gap-3'>
 			<MusicSVG className='h-8 w-8' />
 
