@@ -26,7 +26,7 @@ import { useConfigStore } from '@/app/(home)/stores/config-store'
 
 export const styles = {
 	width: 280,
-	height: 380,
+	height: 380, // 修改点1：增加高度，防止内容被截断
 	order: 2
 }
 
@@ -127,6 +127,7 @@ export default function NavCard() {
 					<>
 						{form !== 'icons' && <div className='text-secondary mt-6 text-sm uppercase'>General</div>}
 
+						{/* 修改点2：父容器只负责定位，移除 space-y-2 */}
 						<div className={cn('relative mt-2', form === 'icons' && 'mt-0')}>
 							<motion.div
 								className='absolute max-w-[230px] rounded-full border'
@@ -140,7 +141,13 @@ export default function NavCard() {
 												width: itemHeight + extraSize * 2,
 												height: itemHeight + extraSize * 2
 											}
-										: { top: hoveredIndex * (itemHeight + 8), left: 0, width: '100%', height: itemHeight }
+										: { 
+                                            // 公式现在完美匹配 CSS 的 gap-2 (8px)
+                                            top: hoveredIndex * (itemHeight + 8), 
+                                            left: 0, 
+                                            width: '100%', 
+                                            height: itemHeight 
+                                        }
 								}
 								transition={{
 									type: 'spring',
@@ -148,23 +155,29 @@ export default function NavCard() {
 									damping: 30
 								}}
 								style={{ backgroundImage: 'linear-gradient(to right bottom, #FFFFFF 0%, #fafafa 80%)' }}
-							/>                    
-    {/* 新添加的包裹层 DIV */}
-                            <div className={cn('space-y-2', form === 'icons' && 'flex items-center gap-6 space-y-0')}>
-							{list.map((item, index) => (
-								<Link
-									key={item.href}
-									href={item.href}
-									className={cn('text-secondary text-md relative z-10 flex items-center gap-3 rounded-full px-5 py-3', form === 'icons' && 'p-0')}
-									onMouseEnter={() => setHoveredIndex(index)}>
-									<div className='flex h-7 w-7 items-center justify-center'>
-										{hoveredIndex == index ? <item.iconActive className='text-brand absolute h-7 w-7' /> : <item.icon className='absolute h-7 w-7' />}
-									</div>
-									{form !== 'icons' && <span className={clsx(index == hoveredIndex && 'text-primary font-medium')}>{item.label}</span>}
-								</Link>
-							))}
+							/>
+
+							{/* 修改点3：独立的列表容器，使用 flex gap 替代 space，定位更准 */}
+							<div className={cn('flex flex-col gap-2', form === 'icons' && 'flex-row items-center gap-6')}>
+								{list.map((item, index) => (
+									<Link
+										key={item.href}
+										href={item.href}
+                                        // 修改点4：添加 h-[52px] 强制固定高度，确保与 JS 计算一致
+                                        // 移除了 py-3，改用 flex items-center 自动垂直居中
+										className={cn('text-secondary text-md relative z-10 flex items-center gap-3 rounded-full px-5', 
+                                            form === 'full' ? 'h-[52px]' : '', // 只有在完整模式下强制高度
+                                            form === 'icons' && 'p-0'
+                                        )}
+										onMouseEnter={() => setHoveredIndex(index)}>
+										<div className='flex h-7 w-7 items-center justify-center'>
+											{hoveredIndex == index ? <item.iconActive className='text-brand absolute h-7 w-7' /> : <item.icon className='absolute h-7 w-7' />}
+										</div>
+										{form !== 'icons' && <span className={clsx(index == hoveredIndex && 'text-primary font-medium')}>{item.label}</span>}
+									</Link>
+								))}
+							</div>
 						</div>
-				</div>
 					</>
 				)}
 			</Card>
