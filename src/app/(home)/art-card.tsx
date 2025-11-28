@@ -5,7 +5,7 @@ import { CARD_SPACING } from '@/consts'
 
 export const styles = {
 	width: 360,
-	height: 200,
+	height: 300,
 	order: 3
 }
 
