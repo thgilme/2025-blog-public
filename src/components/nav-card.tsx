@@ -26,7 +26,6 @@ import { useConfigStore } from '@/app/(home)/stores/config-store'
 
 export const styles = {
 	width: 280,
-	height: 434,
 	order: 2
 }
 
@@ -95,7 +94,7 @@ export default function NavCard() {
 	const size = useMemo(() => {
 		if (form === 'mini') return { width: 64, height: 64 }
 		else if (form === 'icons') return { width: 340, height: 64 }
-		else return { width: styles.width, height: styles.height }
+		else return { width: styles.width, height: 'auto' }
 	}, [form])
 
 	useEffect(() => {
