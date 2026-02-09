@@ -1,15 +1,5 @@
 [
 	{
-		"name": "iLoveIMG",
-		"url": "https://www.iloveimg.com/zh-cn",
-		"logo": "/images/share/7e91e93e3cdd586b.svg",
-		"description": "免费压缩图片",
-		"tags": [
-			"图片"
-		],
-		"stars": 4
-	},
-	{
 		"name": "linux.do",
 		"logo": "blob:https://blog.201090.xyz/babc1c47-8e37-4cc1-af16-711a2b54a018",
 		"url": "https://linux.do",
@@ -18,5 +8,55 @@
 			"网站"
 		],
 		"stars": 4
+	},
+	{
+		"name": "cloudflare邮箱",
+		"logo": "blob:https://blog.201090.xyz/4a7ba89a-76c9-4bf5-94b1-c8b4b3e3e9ac",
+		"url": "https://mail.shine.us.ci/admin",
+		"description": "临时邮箱",
+		"tags": [
+			"邮箱"
+		],
+		"stars": 4
+	},
+	{
+		"name": "Grok2api-cf",
+		"logo": "blob:https://blog.201090.xyz/3f30bb86-19c8-4ec0-969c-01c545e9765a",
+		"url": "https://grok.shine.us.ci",
+		"description": "Grok",
+		"tags": [
+			"AI"
+		],
+		"stars": 4
+	},
+	{
+		"name": "onedrive",
+		"logo": "/images/share/8999e8525cca38de.jpg",
+		"url": "https://onedrive.live.com/",
+		"description": "onedrive网盘",
+		"tags": [
+			"网盘"
+		],
+		"stars": 4
+	},
+	{
+		"name": "cloudflare",
+		"logo": "blob:https://blog.201090.xyz/3b806401-6e6b-4f51-a3b7-cd6468d561e9",
+		"url": "https://dash.cloudflare.com",
+		"description": "赛博菩萨",
+		"tags": [
+			"网络"
+		],
+		"stars": 5
+	},
+	{
+		"name": "github",
+		"logo": "blob:https://blog.201090.xyz/3bead74f-001e-4111-8afa-d72757fee430",
+		"url": "https://github.com",
+		"description": "啥都有",
+		"tags": [
+			"网络"
+		],
+		"stars": 5
 	}
 ]
